@@ -1,0 +1,15 @@
+<header>
+    <h1>Todo List</h1>
+</header>
+<h1>the app Component</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <label>Add Todo</label>
+    <input ngModel name="todo">
+    <button>Submit</button>
+</form>
+
+<div *ngIf="todos.length === 0">no Todos available</div>
+<div *ngFor="let todo of todos; let i = index">
+    {{todo.todo}}
+    <button (click)="deleteTodo(i)">Delete</button>
+</div>
