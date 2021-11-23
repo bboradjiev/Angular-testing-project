@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { TodosComponent } from './components/todos/todos.component';
- 
+  
 @NgModule({
-  declarations: [AppComponent, TodosComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [ ],
   bootstrap: [AppComponent]
