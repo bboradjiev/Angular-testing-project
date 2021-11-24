@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
   
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, EmployeeDashboardComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [ ],
   bootstrap: [AppComponent]

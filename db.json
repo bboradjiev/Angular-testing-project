@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Божидарdddddd",
+      "lastName": "Бораджиев",
+      "email": "B.boradjiev@abv.bg",
+      "mobile": "0887648773",
+      "salary": "984598"
+    },
+    {
+      "id": 2,
+      "firstName": "Бораджиев",
+      "lastName": "Бораджиев",
+      "email": "B.boradjiev@abv.bg",
+      "mobile": "0887648773",
+      "salary": ""
+    }
+  ]
+}
