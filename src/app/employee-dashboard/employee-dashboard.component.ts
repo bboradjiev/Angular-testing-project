@@ -16,41 +16,6 @@ export class EmployeeDashboardComponent implements OnInit {
 
   constructor(private api: ApiServiceService) {}
 
-  ngOnInit(): void {
-    this.getData();
-  }
-
-  onSubmit(form) {
-    this.employee.firstName = form.value.firstName;
-    this.employee.lastName = form.value.lastName;
-    this.employee.email = form.value.email;
-    this.employee.mobile = form.value.mobile;
-    this.employee.salary = form.value.salary;
-    this.api.postEmployee(this.employee).subscribe();
-    form.reset();
-    this.getData();
-  }
-
-  onEdit(emp, i) {
-    this.updatedEmployee.firstName = emp.firstName;
-    this.updatedEmployee.lastName = emp.lastName;
-    this.updatedEmployee.email = emp.email;
-    this.updatedEmployee.mobile = emp.mobile;
-    this.updatedEmployee.salary = emp.salary;
-    this.updatedEmployee.id = i;
-    this.isEditing = !this.isEditing;
-    console.log(this.updatedEmployee);
-  }
-
-  updateEmployee() {
-    this.api
-      .updateEmployee(this.updatedEmployee, this.updatedEmployee.id)
-      .subscribe();
-    this.getData();
-    this.updatedEmployee = new Employee();
-    this.isEditing = !this.isEditing;
-  }
-
   getData() {
     this.api
       .getEmployee()
@@ -66,9 +31,40 @@ export class EmployeeDashboardComponent implements OnInit {
       .subscribe((data) => (this.employeeArr = data));
   }
 
-  deleteData(emp) {
-    this.api.deleteEmployee(emp.id).subscribe();
+  ngOnInit(): void {
     this.getData();
+  }
+
+  onSubmit(form) {
+    this.employee.firstName = form.value.firstName;
+    this.employee.lastName = form.value.lastName;
+    this.employee.email = form.value.email;
+    this.employee.mobile = form.value.mobile;
+    this.employee.salary = form.value.salary;
+    this.api.postEmployee(this.employee).subscribe((data) => this.getData());
+    form.reset();
+  }
+
+  onEdit(emp, i) {
+    this.updatedEmployee.firstName = emp.firstName;
+    this.updatedEmployee.lastName = emp.lastName;
+    this.updatedEmployee.email = emp.email;
+    this.updatedEmployee.mobile = emp.mobile;
+    this.updatedEmployee.salary = emp.salary;
+    this.updatedEmployee.id = i;
+    this.isEditing = !this.isEditing;
+  }
+
+  updateEmployee() {
+    this.api
+      .updateEmployee(this.updatedEmployee, this.updatedEmployee.id)
+      .subscribe((data) => this.getData());
+    this.updatedEmployee = new Employee();
+    this.isEditing = !this.isEditing;
+  }
+
+  deleteData(emp) {
+    this.api.deleteEmployee(emp.id).subscribe((data) => this.getData());
   }
 
   getLenght() {

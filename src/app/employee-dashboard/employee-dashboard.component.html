@@ -17,7 +17,7 @@
     <label>Salary</label>
     <input type="text" [(ngModel)]="updatedEmployee.salary" name="salary">
     <div class="d-flex">        
-        <button class="btn btn-success">Add employee</button>
+        <button *ngIf="!isEditing" class="btn btn-success">Add employee</button>
 
     </div>
 </form>
