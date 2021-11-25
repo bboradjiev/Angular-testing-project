@@ -19,15 +19,15 @@ export class EmployeeDashboardComponent implements OnInit {
   getData() {
     this.api
       .getEmployee()
-      .pipe(
-        map((res) => {
-          const arr = [];
-          for (const key in res) {
-            arr.push({ ...res[key] });
-          }
-          return arr;
-        })
-      )
+      // .pipe(
+      //   map((res) => {
+      //     const arr = [];
+      //     for (const key in res) {
+      //       arr.push({ ...res[key] });
+      //     }
+      //     return arr;
+      //   })
+      // )
       .subscribe((data) => (this.employeeArr = data));
   }
 
@@ -41,7 +41,7 @@ export class EmployeeDashboardComponent implements OnInit {
     this.employee.email = form.value.email;
     this.employee.mobile = form.value.mobile;
     this.employee.salary = form.value.salary;
-    this.api.postEmployee(this.employee).subscribe((data) => this.getData());
+    this.api.postEmployee(this.employee).subscribe(() => this.getData());
     form.reset();
   }
 
@@ -58,13 +58,13 @@ export class EmployeeDashboardComponent implements OnInit {
   updateEmployee() {
     this.api
       .updateEmployee(this.updatedEmployee, this.updatedEmployee.id)
-      .subscribe((data) => this.getData());
+      .subscribe(() => this.getData());
     this.updatedEmployee = new Employee();
     this.isEditing = !this.isEditing;
   }
 
   deleteData(emp) {
-    this.api.deleteEmployee(emp.id).subscribe((data) => this.getData());
+    this.api.deleteEmployee(emp.id).subscribe(() => this.getData());
   }
 
   getLenght() {
