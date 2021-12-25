@@ -1,0 +1,8 @@
+<button (click)="onClick()">click</button>
+
+<h1 *ngIf="isLoading">....Loading</h1>
+<div *ngIf="!isLoading">
+    <h1>longitute {{longitude}}°</h1>
+    <h1>lantitute {{latitude}}°</h1>
+    <p>the weather in Sofia is {{weatherData.main.temp.toFixed()}} degrees but it feels like {{weatherData.main.feels_like.toFixed()}} </p>
+</div>
