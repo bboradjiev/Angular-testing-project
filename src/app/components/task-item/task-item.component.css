@@ -1,0 +1,9 @@
+.container{
+    border: 2px solid black;
+    margin: 5px;
+    padding: 15px;
+}
+
+.reminder{
+    border-left: 13px solid red ;
+}
